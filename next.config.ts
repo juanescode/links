@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "diumbqc3hc.ufs.sh", // ✅ Agregar este dominio
+        hostname: "diumbqc3hc.ufs.sh",
         port: "",
         pathname: "/**",
       },

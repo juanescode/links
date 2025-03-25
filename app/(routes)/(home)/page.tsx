@@ -6,6 +6,7 @@ import { useUser } from "@clerk/nextjs";
 import { Link, User } from "@prisma/client";
 import { LoaderProfile } from "@/components/Shared";
 import { StepConfigUserProvider, UserProvider } from "@/contexts";
+import { ProfilePreview } from "./components/ProfilePreview";
 
 export default function HomePage() {
   const { user } = useUser();
@@ -57,9 +58,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div>
-          <p>Profile preview</p>
-        </div>
+        <ProfilePreview />
       </div>
     </UserProvider>
   );
