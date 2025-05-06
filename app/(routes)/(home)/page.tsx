@@ -7,6 +7,7 @@ import { Link, User } from "@prisma/client";
 import { LoaderProfile } from "@/components/Shared";
 import { StepConfigUserProvider, UserProvider } from "@/contexts";
 import { ProfilePreview } from "./components/ProfilePreview";
+import ListSocialNetworks from "./components/ListSocialNetworks/ListSocialNetworks";
 
 export default function HomePage() {
   const { user } = useUser();
@@ -49,6 +50,11 @@ export default function HomePage() {
         <div>
           <LinkProfile />
           <ProfileInfo onReload={setReload} />
+
+          {infoUser.links.length > 0 ? (
+           <ListSocialNetworks links={infoUser.links} onReload={setReload}/>
+          ): (
+
           <div className="mt-20 flex flex-col items-center">
             <div className="py-10 text-center justify-center flex flex-col items-center text-gray-400 font-semibold">
               <TreePalm className="h-20 w-20" strokeWidth={1} />
@@ -56,6 +62,7 @@ export default function HomePage() {
               <p>Add a link to get started.</p>
             </div>
           </div>
+             )}
         </div>
 
         <ProfilePreview />

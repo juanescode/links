@@ -33,6 +33,7 @@ export function EditBackground(props: EditBackgroundProps) {
       reloadUser();
       setShowDialog(false);
       onReload(true);
+      setPhotoUrl("");
 
       toast.success("Background updated successfully");
     } catch (error) {
@@ -44,7 +45,7 @@ export function EditBackground(props: EditBackgroundProps) {
     <Dialog open={showDialog} onOpenChange={setShowDialog}>
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <div className="p-2 bg-[#e0e2d9] rounded-full">
+          <div className="p-2 bg-[#e0e2d9] rounded-full cursor-pointer">
             <Ellipsis fill="black" strokeWidth={1} />
           </div>
         </DropdownMenuTrigger>
