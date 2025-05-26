@@ -1,3 +1,4 @@
+import { AddLinkForm } from "./AddLinkForm";
 import { BlockInfo } from "./BlockInfo";
 import { EditBackground } from "./EditBackground";
 import { ProfileImage } from "./ProfileImage";
@@ -15,6 +16,8 @@ export function ProfileInfo(props: ProfileInfoProps) {
 
         <EditBackground onReload={onReload} />
       </div>
+
+     <AddLinkForm onReload={onReload}/>
     </div>
   );
 }

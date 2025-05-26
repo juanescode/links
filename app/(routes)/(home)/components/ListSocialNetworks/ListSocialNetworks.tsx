@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
+import { EditSocialNetwork } from "./EditSocialNetwork";
+import { RemoveSocialNetwork } from "./RemoveSocialNetwork";
 
 export default function ListSocialNetworks(props: ListSocialNetworksProps) {
   const { links, onReload } = props;
@@ -28,15 +30,15 @@ export default function ListSocialNetworks(props: ListSocialNetworksProps) {
               <span className="text-xs text-slate-500">{link.link}</span>
             </div>
           </div>
-
+ 
           <div className="flex gap-4 items-center">
             <Button asChild>
               <Link href={`${link.link}`} target="_blank">
                 <ExternalLink className="w-4 h-4" />
               </Link>
             </Button>
-            <p>EDIT</p>
-            <p>Remove</p>
+            <EditSocialNetwork link={link} onReload={onReload} />
+           <RemoveSocialNetwork linkId={link.id} onReload={onReload} />
           </div>
         </div>
       ))}

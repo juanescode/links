@@ -1,6 +1,6 @@
 import { Link } from "@prisma/client"
 
-export type EditSocialNetworkProps = {
-    link: Link
+export type RemoveSocialNetworkProps = {
+    linkId: Link["id"]
     onReload: React.Dispatch<React.SetStateAction<boolean>>
 }
