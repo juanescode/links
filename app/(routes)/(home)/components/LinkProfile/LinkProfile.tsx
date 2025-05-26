@@ -1,12 +1,16 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { useUserInfo } from "@/hooks/useUser";
 import { useState } from "react";
 
 export function LinkProfile() {
   const [isCopiedLink, setIsCopiedLink] = useState(false);
+  const {user} = useUserInfo()
+
+  if (!user) return null;
 
   const copylink = () => {
-    const url = `${window.location.origin}/juanesCodeTest`;
+    const url = `${window.location.origin}/${user.username}`;
 
     navigator.clipboard.writeText(url);
 
@@ -18,7 +22,7 @@ export function LinkProfile() {
       <div className="flex flex-col justify-center text-center py-4 px-4 items-center gap-2 md:flex-row md:justify-between md:text-left">
         <span className="text-sm">
           <span>🔥 Your LinkTree is live: </span>
-          {window.location.origin} / @juanesCodeTest
+          {window.location.origin} / @{user.username}
         </span>
 
         <Button
